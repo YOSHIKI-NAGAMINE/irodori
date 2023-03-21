@@ -1,0 +1,127 @@
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Carousel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="nav"></div>
+  <div class="profeel">
+    <div class="icon"><%= image_tag "icon.png", class:"icon-img" %></div>
+    <ul class="achievement">達成率
+      <li>世界達成率</li>
+      <li>日本達成率</li>
+    </ul>
+  </div>
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div>World</div>
+        <%= image_tag "my-map1.png", class:"my-map" %>
+      </div>
+      <div class="carousel-item">
+        <div>Japan</div>
+        <%= image_tag "my-map2.png", class:"my-map" %>
+      </div>
+      <div class="carousel-item">
+      <div>Europe</div>
+        <%= image_tag "my-map3.png", class:"my-map" %>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</main>
+<%# 商品一覧 %>
+<div class='item-contents'>
+  <h2 class='title'><%= "#{@user.nickname}さんのしおり一覧" %></h2>
+  <div class="subtitle" >
+    新着情報
+  </div>
+  <ul class='item-lists'>
+
+    <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+    <li class='list'>
+      <%= link_to "#" do %>
+      <div class='item-img-content'>
+        <%= image_tag "hawaii.png", class: "item-img" %>
+
+      </div>
+      <div class='item-info'>
+        <h3 class='item-name'>
+          <%= "しおり名" %>
+        </h3>
+        <div class='item-price'>
+          <span><%= "旅行地域" %><br><%= '人数' %></span>
+          <div class='star-btn'>
+            <%= image_tag "star.png", class:"star-icon" %>
+            <span class='star-count'>0</span>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </li>
+    <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+
+    <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
+    <%# 商品がある場合は表示されないようにしましょう %>
+    <li class='list'>
+      <%= link_to '#' do %>
+      <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+      <div class='item-info'>
+        <h3 class='item-name'>
+          商品を出品してね！
+        </h3>
+        <div class='item-price'>
+          <span>99999999円<br>(税込み)</span>
+          <div class='star-btn'>
+            <%= image_tag "star.png", class:"star-icon" %>
+            <span class='star-count'>0</span>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </li>
+    <%# //商品がある場合は表示されないようにしましょう %>
+    <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
+  </ul>
+</div>
+<%# /商品一覧 %>
+
+<%= link_to("#", class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>作成する</span>
+  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
