@@ -21,8 +21,8 @@ a {
 .gradation {
   background: linear-gradient(90deg, #4158D0, #C850C0 30%, #FFCC70);
   background: -webkit-linear-gradient(0deg, #4158D0, #C850C0 30%, #FFCC70);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
 }
 
 .service-title {
