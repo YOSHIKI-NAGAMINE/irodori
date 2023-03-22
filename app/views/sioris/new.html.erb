@@ -1,12 +1,12 @@
 <div class='chat-room-form'>
   <h1>新規しおり名</h1>
-  <%=form_with model: @room, local: true do |f|%>
+  <%=form_with model: @siori, local: true do |f|%>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
-        <%= f.label :name, :タイトル, class: 'chat-room-form__label'%>
+        <%= f.label :title, :タイトル, class: 'chat-room-form__label'%>
       </div>
       <div class='chat-room-form__field--right'>
-        <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'しおりのタイトルを入力してください'%>
+        <%= f.text_field :title, class: 'chat__room_name chat-room-form__input', placeholder: 'しおりのタイトルを入力してください'%>
       </div>
     </div>
     <div class='chat-room-form__field'>
