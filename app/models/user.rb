@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
+
+  has_many :siori_users
+  has_many :sioris, through: :siori_users
 end

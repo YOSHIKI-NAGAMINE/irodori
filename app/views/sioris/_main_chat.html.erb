@@ -3,7 +3,7 @@
    <%= "チャットルーム" %>
   </div>
   <div class="header-button">
-  メンバー：user1 user2 user3
+  <%= "#{User.find(@siori.user_ids[0]).nickname}/ #{User.find(@siori.user_ids[1]).nickname}/ #{User.find(@siori.user_ids[2]).nickname}" %>
     <%# <%= link_to "チャットを終了する", "#", method: :delete %>
   </div>
 </div>
