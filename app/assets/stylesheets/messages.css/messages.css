@@ -1,0 +1,224 @@
+.wrapper {
+  display: flex;
+}
+.side-bar {
+  background-color: #FFFFFF;
+  width: calc(100vw - 300px);
+  height: 100vh;
+  
+}
+
+.side-bar-header {
+  height: 100px;
+  padding: 0 20px;
+  background-color: #253141;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-name a{
+  font-size: 16px;
+  color: #FAFAFA;
+  text-decoration: none;
+}
+
+.create-room a {
+  font-size: 10px;
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+
+.rooms {
+  background-color: #2F3E51;
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.room {
+  padding: 20px 0 40px;
+}
+
+.room-name a {
+  text-decoration: none;
+  color: white;
+}
+
+.chat {
+  background-color: #DDDDDD;
+  width: 300px;
+  position: fixed;
+  right: 0;
+}
+.chat-header {
+  height: 80px;
+  padding: 0 10px;
+}
+
+.header-title{
+  font-size: 24px;
+  color: #333;
+  padding-top: 10px;
+}
+
+.header-button{  
+  padding-top: 10px;
+}
+
+.header-button a{
+  color: darkred;
+  text-decoration: none;
+  padding: 20px;
+  border: 1px solid darkred;
+}
+
+.messages {
+  background-color: #FAFAFA;
+  height: calc(100vh - 80px - 70px);
+  padding: 46px 40px 0;
+  overflow: scroll;
+}
+
+.message {
+  margin: 10px 0 0 0;
+}
+
+.upper-message{
+  display: flex;
+}
+
+.message-user {
+  color: #434a54;
+  font-size: 16px;
+}
+
+.message-date {
+  color: #999;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.lower-message {
+  margin-top: 10px;
+}
+
+.message-content {
+  color: #434a54;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+
+.form {
+  background-color: #DDDDDD;
+  height: 70px;
+  padding: 10px 10px;
+  display: flex;
+}
+
+.form-input {
+  background-color: white;
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+.form-message {
+  border: none;
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.form-submit {
+  background-color: #38AEF0;
+  border: none;
+  color: white;
+  font-size: 12px;
+  height: 30px;
+  width: 40px;
+  margin: 10px 10px 0px;
+  padding: 0 2px;
+}
+
+.form-image {
+  background-image: url("icon_album.png");
+  color: white;
+  padding: 12px;
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px;
+  text-align: center;
+}
+
+.image-btn{
+
+}
+
+.hidden {
+  display: none;
+}
+
+.col-md-6{
+  margin-left: 30px;
+}
+
+.day-schedule{
+  padding: 30px;
+  margin: 20px;
+  border: solid gray 1px ;
+  border-radius: 10px;
+}
+
+.row{
+  width: 800px;
+
+}
+
+.col{
+
+}
+
+.schedule-img{
+  width: 30%;
+}
+
+.album {
+  width: 20px;
+  text-align: center;
+  border: solid #999 1px;
+  border-radius: 4%;
+}
+
+.album-icon{
+  background-image:url("icon_album.png");
+  width: 40px;
+  height: 40px;
+}
+
+.schedule-memo{
+  list-style: square;
+}
+
+.schedule-day{
+  font-size: 40px;
+}
+
+.side-bar-header{
+  background-color: #FAFAFA;
+  height: 80px;
+  display: block;
+}
+
+.siori-title{
+  font-size: 50px;
+  text-align: center;
+}
+
+.add-schedule{
+  font-size: 15px;
+}

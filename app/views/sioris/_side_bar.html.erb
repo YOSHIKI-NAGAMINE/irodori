@@ -1,0 +1,18 @@
+<div class="side-bar-header">
+    <div class="header-name">
+      <%= link_to current_user.nickname, "#" %>
+  </div>
+  <div class="create-room">
+    <%= link_to "チャットを作成する", new_siori_path %>
+  </div>
+</div>
+
+<div class="rooms">
+  <% @sioris.each do |siori| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to siori.title, "#" %>
+      </div>
+    </div>
+  <% end %>
+</div>
