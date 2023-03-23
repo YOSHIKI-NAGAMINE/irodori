@@ -2,9 +2,10 @@
   display: flex;
 }
 .side-bar {
-  background-color: #253141;
-  width: 300px;
+  background-color: #FFFFFF;
+  width: calc(100vw - 300px);
   height: 100vh;
+  
 }
 
 .side-bar-header {
@@ -48,24 +49,24 @@
 }
 
 .chat {
-  background-color: #FFFFFF;
-  width: calc(100vw - 300px);
+  background-color: #DDDDDD;
+  width: 300px;
+  position: fixed;
+  right: 0;
 }
 .chat-header {
-  height: 100px;
+  height: 80px;
   padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .header-title{
   font-size: 24px;
   color: #333;
-  margin-top: 36px;
+  padding-top: 10px;
 }
 
 .header-button{  
-  margin-top: 40px;
+  padding-top: 10px;
 }
 
 .header-button a{
@@ -77,7 +78,7 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 100px - 90px);
+  height: calc(100vh - 80px - 70px);
   padding: 46px 40px 0;
   overflow: scroll;
 }
@@ -114,8 +115,8 @@
 
 .form {
   background-color: #DDDDDD;
-  height: 90px;
-  padding: 20px 40px;
+  height: 70px;
+  padding: 10px 10px;
   display: flex;
 }
 
@@ -123,6 +124,7 @@
   background-color: white;
   display: flex;
   width: 100%;
+  height: 50px;
 }
 
 .form-message {
@@ -136,22 +138,81 @@
   background-color: #38AEF0;
   border: none;
   color: white;
-  font-size: 16px;
-  height: 50px;
-  margin-left: 15px;
-  padding: 0 20px;
+  font-size: 12px;
+  height: 30px;
+  width: 40px;
+  margin: 10px 10px 0px;
+  padding: 0 2px;
 }
 
 .form-image {
-  font-size: 12px;
-  background-color: lightblue;
+  background-image: url("icon_album.png");
   color: white;
   padding: 12px;
-  width: 60px;
-  margin: 5px 10px;
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px;
   text-align: center;
+}
+
+.image-btn{
+
 }
 
 .hidden {
   display: none;
+}
+
+.col-md-6{
+  margin-left: 30px;
+}
+
+.day-schedule{
+  padding: 30px;
+  margin: 20px;
+  border: solid gray 1px ;
+  border-radius: 10px;
+}
+
+.row{
+  width: 800px;
+
+}
+
+.col{
+
+}
+
+.schedule-img{
+  width: 30%;
+}
+
+.album {
+  width: 20px;
+  text-align: center;
+  border: solid #999 1px;
+  border-radius: 4%;
+}
+
+.album-icon{
+  background-image:url("icon_album.png");
+  width: 40px;
+  height: 40px;
+}
+
+.schedule-memo{
+  list-style: square;
+}
+
+.schedule-day{
+  font-size: 40px;
+}
+
+.side-bar-header{
+  background-color: #FAFAFA;
+  height: 80px;
+}
+
+.add-schedule{
+  font-size: 15px;
 }
