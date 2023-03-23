@@ -1,6 +1,6 @@
 class SiorisController < ApplicationController
   def index
-    @sioris = Siori.all
+    @sioris = Siori.find[params[:id]]
   end
 
   def new
@@ -19,6 +19,6 @@ class SiorisController < ApplicationController
 
   private
   def siori_params
-    params.require(:siori).permit(:title)
+    params.require(:siori).permit(:title, :image, :start_day, :day)
   end
 end

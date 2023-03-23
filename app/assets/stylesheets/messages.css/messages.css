@@ -211,6 +211,12 @@
 .side-bar-header{
   background-color: #FAFAFA;
   height: 80px;
+  display: block;
+}
+
+.siori-title{
+  font-size: 50px;
+  text-align: center;
 }
 
 .add-schedule{
