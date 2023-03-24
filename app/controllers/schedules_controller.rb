@@ -11,6 +11,12 @@ class SchedulesController < ApplicationController
     redirect_to "/sioris/#{@siori}"
   end
 
+  def destroy
+    schedule = Schedule.find(params[:id])
+    schedule.destroy
+    redirect_to "/sioris/#{params[:siori_id]}"
+  end
+
 
   private
   def schedule_params

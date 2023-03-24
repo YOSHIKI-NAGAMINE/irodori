@@ -18,6 +18,7 @@
         <%= "Day#{n}" %><%= link_to("<予定を追加する>", "/sioris/#{@siori.id}/schedules/new", {class: "add-schedule"}) %>
         </div>
         <% @schedule.each do |schedule| %>
+        <% if schedule.day == "#{n}" then %>
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
@@ -27,7 +28,7 @@
               <div class="schedule-memo">
                 <%= "#{schedule.memo}" %>
               </div>
-              <a href="#" class="stretched-link">編集</a>
+              <%= link_to "<削除>", "/sioris/#{@siori.id}/schedules/#{schedule.id}", method: :delete %>
             </div>
             <div class="col-auto d-none d-lg-block">
               <%= image_tag schedule.image, size: '200x200'%>
@@ -38,6 +39,7 @@
             </div>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>
     </div>
