@@ -2,7 +2,8 @@ class CreateSchedules < ActiveRecord::Migration[6.0]
   def change
     create_table :schedules do |t|
 
-      t.integer :time_id
+      t.string :day
+      t.string :time
       t.string :title
       t.string :place
       t.string :map_link

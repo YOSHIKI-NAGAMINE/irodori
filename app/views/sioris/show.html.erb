@@ -17,21 +17,20 @@
         <div class="schedule-day">
         <%= "Day#{n}" %><%= link_to("<予定を追加する>", "/sioris/#{@siori.id}/schedules/new", {class: "add-schedule"}) %>
         </div>
+        <% @schedule.each do |schedule| %>
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary">AM9:00</strong>
-              <h3 class="mb-0">ホテルで朝食</h3>
-              <div class="mb-1 text-muted">場所：Hotel's restaulant＜GoogleMapLink＞</div>
-              <ul class="schedule-memo">
-                <li>朝食券を持って行くのを忘れずに！</li>
-                <li>会計時にクーポンを見せれば割引！</li>
-                <li>クロワッサンが美味しいらしい！</li>
-              </ul>
+              <strong class="d-inline-block mb-2 text-primary"><%= "#{schedule.time}" %></strong>
+              <h3 class="mb-0"><%= "#{schedule.title}" %></h3>
+              <div class="mb-1 text-muted"><%= "場所：#{schedule.place}" %><%= "＜#{schedule.map_link}＞" %></div>
+              <div class="schedule-memo">
+                <%= "#{schedule.memo}" %>
+              </div>
               <a href="#" class="stretched-link">編集</a>
             </div>
             <div class="col-auto d-none d-lg-block">
-              <%= image_tag 'omrice.png', size: '200x200'%>
+              <%= image_tag schedule.image, size: '200x200'%>
             </div>
             <div class="col-auto d-none d-lg-block">
               Album→
@@ -39,6 +38,7 @@
             </div>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
     <% n += 1%>

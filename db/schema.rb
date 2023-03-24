@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 2023_03_24_073328) do
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "time_id"
+    t.string "day"
+    t.string "time"
     t.string "title"
     t.string "place"
     t.string "map_link"

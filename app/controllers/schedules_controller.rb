@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
 
   def new
-    @siori = params[:siori_id]
+    @siori = Siori.find(params[:siori_id])
     @schedule = Schedule.new
   end
 
@@ -14,6 +14,6 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit(:time_id, :title, :image, :place, :map_link, :memo).merge(siori_id: params[:siori_id])
+    params.require(:schedule).permit(:day, :time, :title, :image, :place, :map_link, :memo).merge(siori_id: params[:siori_id])
   end
 end

@@ -1,6 +1,6 @@
 <div class='chat-room-form'>
-  <h1>新規しおり作成</h1>
-  <%= form_with model: @schedule, url: "/sioris/#{@siori}/schedules", local: true do |f| %>
+  <h1>新規スケジュール作成</h1>
+  <%= form_with model: @schedule, url: "/sioris/#{@siori.id}/schedules", local: true do |f| %>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
         <%= f.label :image, :Top画像, class: 'chat-room-form__label'%>
@@ -9,12 +9,25 @@
         <%= f.file_field :image %>
       </div>
     </div>
-        <div class='chat-room-form__field'>
+    <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
-        <%= f.label :time_id, :開始時刻, class: 'chat-room-form__label'%>
+        <%= f.label :day, :日程, class: 'chat-room-form__label'%>
+      </div>
+      <select name="schedule[day]">
+        <option value="">スケジュールを追加する日程を選択してください</option>
+        <% n=1 %>
+        <% @siori.day.to_i.times do %>
+        <option  value=<%= "#{n}" %>><%= "Day#{n}" %></option>
+        <% n += 1 %>
+        <% end %>
+      </select>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :time, :開始時刻, class: 'chat-room-form__label'%>
       </div>
       <div class='chat-room-form__field--right'>
-        <%= f.time_field :time_id, class: 'chat__room_name schedule-time-form_input' %>
+        <%= f.time_field :time, class: 'chat__room_name schedule-time-form_input' %>
       </div>
     </div>
     <div class='chat-room-form__field'>
