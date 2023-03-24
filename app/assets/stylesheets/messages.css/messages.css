@@ -222,3 +222,20 @@
 .add-schedule{
   font-size: 15px;
 }
+
+.schedule-time-form_input{
+  float: left;
+  width: 20%;
+  line-height: 30px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+
+.schedule-memo-form_input{
+  float: left;
+  width: 100%;
+  height: 108px;
+  line-height: 30px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}

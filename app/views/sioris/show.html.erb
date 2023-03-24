@@ -15,7 +15,7 @@
     <div class="schedule">
       <div class="day-schedule">
         <div class="schedule-day">
-        <%= "Day#{n}" %><%= link_to("<予定を追加する>", '#', {class: "add-schedule"}) %>
+        <%= "Day#{n}" %><%= link_to("<予定を追加する>", "/sioris/#{@siori.id}/schedules/new", {class: "add-schedule"}) %>
         </div>
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">

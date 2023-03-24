@@ -3,4 +3,5 @@ class Siori < ApplicationRecord
 
   has_many :siori_users, dependent: :destroy
   has_many :users, through: :siori_users
+  has_many :schedules
 end
