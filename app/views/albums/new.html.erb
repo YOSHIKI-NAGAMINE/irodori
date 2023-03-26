@@ -1,6 +1,6 @@
 <div class='chat-room-form'>
   <h1>写真の追加</h1>
-  <%= form_with url: "/sioris/#{@siori.id}/schedules/#{@schedule.id}/albums", model: @album, local: true do |f| %>
+  <%= form_with url: "/sioris/#{@siori}/schedules/#{@schedule}/albums", model: @album, local: true do |f| %>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
         <%= f.label :image, :写真, class: 'chat-room-form__label'%>

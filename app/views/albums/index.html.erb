@@ -1,12 +1,11 @@
 <div class='item-contents'>
   <h2 class='title'>写真一覧</h2>
   <div class="subtitle" >
-    ＜検索＞
+    <%= link_to("<写真を追加する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/new", {class: "schedule-edit"}) %>
   </div>
-  <ul class='item-lists'>
     <% if @photos.present? %>
       <% @photos.each do |photo| %>
-          <div class='item-img-content'>
+          <div class='album-img-content'>
             <%= image_tag photo.image, class: "item-img" %>
           </div>
       <% end %>

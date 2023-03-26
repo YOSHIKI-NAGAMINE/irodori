@@ -1,17 +1,20 @@
 class AlbumsController < ApplicationController
 
   def index
-    @photos = Album.all
+    @siori = params[:siori_id]
+    @schedule = params[:schedule_id]
+    @photos = Album.where(schedule_id: @schedule)
   end
 
   def new
-    @siori = Siori.find(params[:siori_id])
-    @schedule = Schedule.find(params[:schedule_id])
+    @siori = params[:siori_id]
+    @schedule = params[:schedule_id]
     @album = Album.new
   end
 
   def create
     @album = Album.create(album_params)
+    redirect_to action: :index
   end
 
   private
