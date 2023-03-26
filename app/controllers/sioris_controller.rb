@@ -14,6 +14,7 @@ class SiorisController < ApplicationController
 
   def show
     @siori = Siori.find(params[:id])
+    @schedule = Schedule.where(siori_id: params[:id]).order('time')
   end
 
 

@@ -1,0 +1,71 @@
+<div class='chat-room-form'>
+  <h1>新規スケジュール作成</h1>
+  <%= form_with model: @schedule, url: "/sioris/#{@siori.id}/schedules", local: true do |f| %>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :image, :Top画像, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :day, :日程, class: 'chat-room-form__label'%>
+      </div>
+      <select name="schedule[day]">
+        <option value="">スケジュールを追加する日程を選択してください</option>
+        <% n=1 %>
+        <% @siori.day.to_i.times do %>
+        <option  value=<%= "#{n}" %>><%= "Day#{n}" %></option>
+        <% n += 1 %>
+        <% end %>
+      </select>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :time, :開始時刻, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.time_field :time, class: 'chat__room_name schedule-time-form_input' %>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :title, :タイトル, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :title, class: 'chat__room_name chat-room-form__input', placeholder: 'スケジュール名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :place, :場所, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :place, class: 'chat__room_name chat-room-form__input', placeholder: '場所を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :map_link, :GoogleMap_URL, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :map_link, class: 'chat__room_name chat-room-form__input', placeholder: 'GoogleMapのリンクを入力してください'%>
+      </div>
+    </div>
+     <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :memo, :メモ, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_area :memo, class: 'chat__room_name schedule-memo-form_input', placeholder: 'メモを入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>

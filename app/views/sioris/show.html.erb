@@ -15,30 +15,45 @@
     <div class="schedule">
       <div class="day-schedule">
         <div class="schedule-day">
-        <%= "Day#{n}" %><%= link_to("<予定を追加する>", '#', {class: "add-schedule"}) %>
+        <%= "Day#{n}" %><%= link_to("<予定を追加する>", "/sioris/#{@siori.id}/schedules/new", {class: "add-schedule"}) %>
         </div>
+        <% @schedule.each do |schedule| %>
+        <% if schedule.day == "#{n}" then %>
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+             <div class="schedule-bar">
+              <div class="schedule-time">
+                <%= "#{schedule.time}" %>
+              </div>
+              <div>
+                <%= link_to image_tag("icon_album.png"), "#" %>
+                <%= link_to("<編集>", "/sioris/#{@siori.id}/schedules/#{schedule.id}/edit", {class: "schedule-edit"}) %>
+                <%= link_to "<削除>", "/sioris/#{@siori.id}/schedules/#{schedule.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+              </div>
+            </div>
+
+            <div class="col-auto d-none d-lg-block">
+              <div class="schedule-img">
+                <%= image_tag schedule.image, size: '150x150'%>
+              </div>
+            </div>
+
             <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary">AM9:00</strong>
-              <h3 class="mb-0">ホテルで朝食</h3>
-              <div class="mb-1 text-muted">場所：Hotel's restaulant＜GoogleMapLink＞</div>
-              <ul class="schedule-memo">
-                <li>朝食券を持って行くのを忘れずに！</li>
-                <li>会計時にクーポンを見せれば割引！</li>
-                <li>クロワッサンが美味しいらしい！</li>
-              </ul>
-              <a href="#" class="stretched-link">編集</a>
+              
+              <h3 class="mb-0"><%= "#{schedule.title}" %></h3>
+              <div class="mb-1 text-muted"><%= "場所：#{schedule.place}" %><%= "＜#{schedule.map_link}＞" %></div>
+              <div class="schedule-memo">
+                <%= "#{schedule.memo}" %>
+              </div>
             </div>
-            <div class="col-auto d-none d-lg-block">
-              <%= image_tag 'omrice.png', size: '200x200'%>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              Album→
-              <%= image_tag 'icon_album.png', size: '40x40'%>
-            </div>
+
+            
+
           </div>
         </div>
+        <% end %>
+        <% end %>
       </div>
     </div>
     <% n += 1%>
