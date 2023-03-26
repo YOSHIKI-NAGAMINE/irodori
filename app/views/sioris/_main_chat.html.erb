@@ -3,7 +3,9 @@
    <%= "チャットルーム" %>
   </div>
   <div class="header-button">
-  <%= "#{User.find(@siori.user_ids[0]).nickname}/ #{User.find(@siori.user_ids[1]).nickname}/ #{User.find(@siori.user_ids[2]).nickname}" %>
+    <% @users.each do |user| %>
+    <%= "#{user.nickname}/" %>
+    <% end %>
     <%# <%= link_to "チャットを終了する", "#", method: :delete %>
   </div>
 </div>
@@ -12,7 +14,7 @@
   <%= render partial: 'message', collection: @messages %>
 </div>
 
-<%= form_with model: @room, class: 'form', local: true do |f| %>
+<%= form_with model: @message, url: "/sioris/#{@siori.id}/messages", class: 'form', local: true do |f| %>
   <div class="form-input">
     <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
     <label class="form-image">
