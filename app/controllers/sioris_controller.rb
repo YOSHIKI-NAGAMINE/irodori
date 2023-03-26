@@ -13,6 +13,7 @@ class SiorisController < ApplicationController
   end
 
   def show
+    @message = Message.new
     @siori = Siori.find(params[:id])
     @schedule = Schedule.where(siori_id: params[:id]).order('time')
   end
