@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:image, :siori_id, :schedule_id).merge(siori_id: params[:siori_id], schedule_id: params[:schedule_id])
+    params.require(:album).permit(:image, :comment).merge(siori_id: params[:siori_id], schedule_id: params[:schedule_id])
   end
 
 end

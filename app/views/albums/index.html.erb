@@ -3,16 +3,17 @@
   <div class="subtitle" >
     <%= link_to("<写真を追加する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/new", {class: "schedule-edit"}) %>
   </div>
-    <% if @photos.present? %>
-      <% @photos.each do |photo| %>
-          <div class='album-img-content'>
-            <%= image_tag photo.image, class: "item-img" %>
-          </div>
-          <div>
-            <%= link_to "<削除する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
-          </div>
-      <% end %>
-    <% else %>
-      このアルバムにはまだ写真がありません
+  <div class='album-contents'>
+  <% if @photos.present? %>
+    <% @photos.each do |photo| %>
+       <ul class="album-content">
+        <li><%= image_tag photo.image, class: "item-img" %></li>
+        <li><%= "#{photo.comment}" %></li>
+        <li><%= link_to("<編集する>", "#", {class: "schedule-edit"}) %><%= link_to "<削除する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %></li>
+      </ul>
     <% end %>
+  <% else %>
+    このアルバムにはまだ写真がありません
+  <% end %>
+  </div>
 </div>

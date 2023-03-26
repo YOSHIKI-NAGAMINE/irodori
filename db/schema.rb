@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2023_03_26_121858) do
   end
 
   create_table "albums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment"
     t.bigint "siori_id", null: false
     t.bigint "schedule_id", null: false
     t.datetime "created_at", precision: 6, null: false

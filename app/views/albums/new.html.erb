@@ -9,7 +9,14 @@
         <%= f.file_field :image %>
       </div>
     </div>
-    
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :comment, :コメント, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_area :comment, class: 'chat__room_name chat-room-form__input', placeholder: 'コメントを入力してください'%>
+      </div>
+    </div>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--right'>
         <%= f.submit class: 'chat-room-form__action-btn'%>
