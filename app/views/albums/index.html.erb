@@ -9,7 +9,7 @@
        <ul class="album-content">
         <li><%= image_tag photo.image, class: "item-img" %></li>
         <li><%= "#{photo.comment}" %></li>
-        <li><%= link_to("<編集する>", "#", {class: "schedule-edit"}) %><%= link_to "<削除する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %></li>
+        <li><%= link_to("<編集する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}/edit", {class: "schedule-edit"}) %><%= link_to "<削除する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %></li>
       </ul>
     <% end %>
   <% else %>
