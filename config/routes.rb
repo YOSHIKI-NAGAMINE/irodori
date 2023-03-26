@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to:"users#index"
   resources :users, only: [:show]
   resources :sioris, only: [:index, :new, :create, :show] do
-    resources :schedules, only: [:new, :create, :destroy]
+    resources :schedules, only: [:new, :create, :destroy, :edit, :update]
   end
 end

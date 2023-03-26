@@ -17,6 +17,17 @@ class SchedulesController < ApplicationController
     redirect_to "/sioris/#{params[:siori_id]}"
   end
 
+  def edit
+    @siori = Siori.find(params[:siori_id])
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def update
+    schedule = Schedule.find(params[:id])
+    schedule.update(schedule_params)
+    redirect_to "/sioris/#{params[:siori_id]}"
+  end
+
 
   private
   def schedule_params
