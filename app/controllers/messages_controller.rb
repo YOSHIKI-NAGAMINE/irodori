@@ -1,9 +1,7 @@
 class MessagesController < ApplicationController
 
   def create
-    binding.pry
     @message = Message.create(message_params)
-    binding.pry
     redirect_to "/sioris/#{@message.siori_id}"
   end
 

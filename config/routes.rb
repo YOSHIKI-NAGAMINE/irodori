@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :sioris, only: [:index, :new, :create, :show] do
     resources :schedules, only: [:new, :create, :destroy, :edit, :update]
-    resources :messages, only: [:new, :create]
+    resources :messages, only: [:create]
   end
 end

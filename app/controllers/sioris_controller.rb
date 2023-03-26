@@ -14,6 +14,7 @@ class SiorisController < ApplicationController
 
   def show
     @message = Message.new
+    @messages = Message.where(siori_id: params[:id]).order('created_at DESC')
     @siori = Siori.find(params[:id])
     @schedule = Schedule.where(siori_id: params[:id]).order('time')
   end
