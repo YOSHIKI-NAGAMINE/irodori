@@ -9,6 +9,6 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:content).merge(siori_id: params[:siori_id],user_id: current_user.id)
+    params.require(:message).permit(:content, :image).merge(siori_id: params[:siori_id],user_id: current_user.id)
   end
 end
