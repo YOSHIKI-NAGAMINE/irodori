@@ -21,22 +21,35 @@
         <% if schedule.day == "#{n}" then %>
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+             <div class="schedule-bar">
+              <div class="schedule-time">
+                <%= "#{schedule.time}" %>
+              </div>
+              <div>
+                <%= link_to image_tag("icon_album.png"), "#" %>
+                <%= link_to("<編集>", "/sioris/#{@siori.id}/schedules/#{schedule.id}/edit", {class: "schedule-edit"}) %>
+                <%= link_to "<削除>", "/sioris/#{@siori.id}/schedules/#{schedule.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+              </div>
+            </div>
+
+            <div class="col-auto d-none d-lg-block">
+              <div class="schedule-img">
+                <%= image_tag schedule.image, size: '150x150'%>
+              </div>
+            </div>
+
             <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary"><%= "#{schedule.time}" %></strong>
+              
               <h3 class="mb-0"><%= "#{schedule.title}" %></h3>
               <div class="mb-1 text-muted"><%= "場所：#{schedule.place}" %><%= "＜#{schedule.map_link}＞" %></div>
               <div class="schedule-memo">
                 <%= "#{schedule.memo}" %>
               </div>
-              <%= link_to "<削除>", "/sioris/#{@siori.id}/schedules/#{schedule.id}", method: :delete %>
             </div>
-            <div class="col-auto d-none d-lg-block">
-              <%= image_tag schedule.image, size: '200x200'%>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              Album→
-              <%= image_tag 'icon_album.png', size: '40x40'%>
-            </div>
+
+            
+
           </div>
         </div>
         <% end %>

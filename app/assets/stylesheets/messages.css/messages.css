@@ -239,3 +239,28 @@
   padding: 10px 15px;
   box-sizing: border-box;
 }
+
+.schedule-delete{
+  width: 60px;
+  color: red;
+}
+
+.schedule-edit{
+  color: green !important;
+}
+
+.schedule-bar{
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+}
+
+.schedule-time{
+  font-size: 30px;
+  font-weight: 300;
+  padding-left: 10px;
+}
+
+.schedule-img{
+  padding: 10px;
+}
