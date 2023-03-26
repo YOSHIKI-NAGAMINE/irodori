@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to:"users#index"
   resources :users, only: [:show]
   resources :sioris, only: [:index, :new, :create, :show] do
-    resources :schedules, only: [:new, :create, :destroy, :edit, :update]
     resources :messages, only: [:create]
+    resources :schedules, only: [:new, :create, :destroy, :edit, :update] do
+      resources :albums, only: [:new, :create]
+    end
   end
 end
