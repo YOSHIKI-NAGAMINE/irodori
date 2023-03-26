@@ -268,3 +268,15 @@
 .header-title{
   text-align: center;
 }
+
+.album-contents{ 
+  display: flex !important;
+}
+
+ul {
+  background-color: #FFF9F5;
+  padding-left: 0 !important;
+  padding: 5px !important;
+  margin: 5px !important;
+}
+
