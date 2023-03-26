@@ -1,5 +1,9 @@
 class AlbumsController < ApplicationController
 
+  def index
+    @photos = Album.all
+  end
+
   def new
     @siori = Siori.find(params[:siori_id])
     @schedule = Schedule.find(params[:schedule_id])
