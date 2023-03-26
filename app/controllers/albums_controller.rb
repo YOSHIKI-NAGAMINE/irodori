@@ -17,6 +17,12 @@ class AlbumsController < ApplicationController
     redirect_to action: :index
   end
 
+  def destroy
+    photo = Album.find(params[:id])
+    photo.destroy
+    redirect_to action: :index
+  end
+
   private
   def album_params
     params.require(:album).permit(:image, :siori_id, :schedule_id).merge(siori_id: params[:siori_id], schedule_id: params[:schedule_id])

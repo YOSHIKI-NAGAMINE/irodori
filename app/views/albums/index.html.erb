@@ -8,6 +8,9 @@
           <div class='album-img-content'>
             <%= image_tag photo.image, class: "item-img" %>
           </div>
+          <div>
+            <%= link_to "<削除する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          </div>
       <% end %>
     <% else %>
       このアルバムにはまだ写真がありません

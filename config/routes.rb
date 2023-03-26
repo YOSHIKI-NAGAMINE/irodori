@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :sioris, only: [:index, :new, :create, :show] do
     resources :messages, only: [:create]
     resources :schedules, only: [:new, :create, :destroy, :edit, :update] do
-      resources :albums, only: [:new, :create, :index]
+      resources :albums, only: [:new, :create, :index, :destroy]
     end
   end
 end
