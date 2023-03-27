@@ -1,12 +1,14 @@
 <header>
   <div class="container">
-    <h1><a href="/">IRODORI.</a></h1>
-    <%= link_to "ようこそ、#{current_user.nickname}さん", "/users/#{current_user.id}", class: "user-nickname" %>
-    <nav>
-      <%= link_to 'logout', destroy_user_session_path, method: :delete, class: "logout" %>
-      <%= link_to 'sign-up', new_user_registration_path, class: "sign-up" %>
-      <%= link_to 'login', new_user_session_path, class: "login" %>
-    </nav>
+    <div class="title">
+      <h1 class="title-text"><a href="/">IRODORI.</a></h1>
+    </div>
+    <div>
+      <%= link_to "しおり作成", new_siori_path, class: "glowflash" %>
+      <%= link_to 'しおり一覧', destroy_user_session_path, method: :delete, class: "glowflash"%>
+      <%= link_to "マイページ", "/users/#{current_user.id}", class: "glowflash" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "glowflash" %>
+    </div>
   </div>
 </header>
 <div class="container"></div>
