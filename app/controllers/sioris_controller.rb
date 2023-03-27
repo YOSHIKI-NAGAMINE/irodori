@@ -1,5 +1,6 @@
 class SiorisController < ApplicationController
   def index
+    @user = User.find(current_user.id)
     @sioris = Siori.all
   end
 

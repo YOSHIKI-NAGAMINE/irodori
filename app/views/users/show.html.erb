@@ -52,7 +52,7 @@
     </div>
     <ul class='item-lists'>
       <% if @siori.present? %>
-        <% @siori.each do |siori| %>
+        <% @user.sioris.each do |siori| %>
           <li class='list'>
             <%= link_to "/sioris/#{siori.id}" do %>
             <div class='item-img-content'>

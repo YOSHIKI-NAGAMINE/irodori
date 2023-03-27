@@ -5,7 +5,7 @@
     </div>
     <div>
       <%= link_to "しおり作成", new_siori_path, class: "glowflash" %>
-      <%= link_to 'しおり一覧', destroy_user_session_path, method: :delete, class: "glowflash"%>
+      <%= link_to 'しおり一覧', sioris_path, class: "glowflash"%>
       <%= link_to "マイページ", "/users/#{current_user.id}", class: "glowflash" %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "glowflash" %>
     </div>
