@@ -1,0 +1,12 @@
+<header>
+  <div class="container">
+    <h1><a href="/">IRODORI.</a></h1>
+    <%= link_to "ようこそ、#{current_user.nickname}さん", "/users/#{current_user.id}", class: "user-nickname" %>
+    <nav>
+      <%= link_to 'logout', destroy_user_session_path, method: :delete, class: "logout" %>
+      <%= link_to 'sign-up', new_user_registration_path, class: "sign-up" %>
+      <%= link_to 'login', new_user_session_path, class: "login" %>
+    </nav>
+  </div>
+</header>
+<div class="container"></div>

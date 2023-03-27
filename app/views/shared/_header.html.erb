@@ -1,15 +1,17 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("logo.png", class:"furima-icon"), "/" %>
-    <ul class='lists-right'>
+<header>
+  <div class="container">
+    <div class="title">
+      <h1 class="title-text"><a href="/">IRODORI.</a></h1>
+    </div>
+    <div>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <%= link_to "MyPage", "/users/#{current_user.id}", class: "MyPage" %>
+        <%= link_to 'LogOut', destroy_user_session_path, method: :delete, class: "LogOut" %>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <%= link_to 'SignUp', new_user_registration_path, class: "SignUp" %>
+        <%= link_to 'logIn', new_user_session_path, class: "logIn" %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </header>
+<div class="container"></div>

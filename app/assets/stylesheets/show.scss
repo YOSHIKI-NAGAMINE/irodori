@@ -2,12 +2,16 @@ a {
   text-decoration: none !important;
 }
 
-.nav{
-  height: 80px;
-}
 
 .profeel{
   display: flex;
+  background: linear-gradient(to right,#f59090,#fcd7a1,#fff9b1,#a5d4ad,#a3bce2,#a59aca,#cfa7cd,#a59aca,#a3bce2,#a5d4ad,#fff9b1,#fcd7a1,#f59090) 0 / 200%;
+  height: 150px;
+  animation: 10s profeel linear infinite;
+}
+
+@keyframes profeel{
+  100% { background-position: 200%; }
 }
 
 .icon-img{

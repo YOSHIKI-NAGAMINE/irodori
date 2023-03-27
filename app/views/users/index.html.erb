@@ -6,13 +6,15 @@
     <h2 class='service-title'>
       <span class="gradation">世界を自分色に彩ろう！</span>
     </h2>
+  </div>
+  <div class="header-sentence">
     <h2 class='service-subtitle'>
       <span class="gradation">~人生の旅記録アプリ~</span>
     </h2>
     <p class='service-explain'>
       <span class="gradation">IRODORIはあなたの旅のパートナー、旅行計画・記録アプリです</span>
     </p>
-  </div>
+  </div >
   <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
 
   <%# FURIMAが選ばれる3つの理由部分 %>
@@ -60,15 +62,20 @@
     <h2 class='ad-title'>
       さあ、自分色の旅を始めよう！
     </h2>
-    <p class='ad-explain'>
-      新規登録
-    </p>
-    <p class='ad-explain'>
-      出品・購入回数も業界最多です！
-    </p>
-    <p class='ad-explain'>
-      ほしかったあの商品に出会えるかもしれません。
-    </p>
+    <div class="index-btns">
+    <% if user_signed_in? %>
+      <div class="index-btn">
+        <%= link_to "---MyPage---", "/users/#{current_user.id}", class: "glowflash" %>
+      </div>
+    <% else %>
+      <div class="index-btn">
+        <%= link_to '---SignUp---', new_user_registration_path, class: "glowflash" %>
+      </div>
+      <div class="index-btn">
+        <%= link_to '---LogIn---', new_user_session_path, class: "glowflash" %>
+      </div>
+    <% end %>
+    </div>
     <div class='store-btn'>
       <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
       <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
