@@ -5,9 +5,9 @@
     <div class="icon"><%= image_tag "icon.png", class:"icon-img" %></div>
     <div class="achievements">
       <div class="acheve-title">目標達成率</div>
-      <div class="achevement">達成率（世界）:○％</div>
-      <div class="achevement">達成率（日本）:○％</div>
-      <div class="achevement">達成率（ヨーロッパ）:○％</div>
+      <% @achevements.each do |achevement| %>
+      <div class="achevement"><%= "達成率（#{achevement.goal}）:○％" %></div>
+      <% end %>
     </div>
   </div>
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
