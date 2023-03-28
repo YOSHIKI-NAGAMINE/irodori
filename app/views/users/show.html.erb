@@ -1,25 +1,49 @@
+<% @achvement = 0 %>
+<% n = 1 %>
+<% @achevements.each do |achevement| %>
+  <% if n == 1 %> 
+    <% @achevement1 = achevement %>
+  <% elsif n == 2 %>
+    <% @achevement2 = achevement %>
+  <% else %>
+    <% @achevement3 = achevement %>
+  <% end %>
+<% n += 1 %>
+<% end %>
+
 <%= render "shared/header2" %>
 <main>
   <div class="nav"></div>
   <div class="profeel">
-  <%= link_to "/users/#{current_user.id}/achevements/1/edit" do %>
+  <%= link_to "/users/#{current_user.id}/achevements/new" do %>
     <div class="icon"><%= image_tag "icon.png", class:"icon-img" %></div>
   <% end %>
     <div class="achievements">
-      <div class="acheve-title">目標達成率</div>
-      <% @achvement = 0 %>
-      <% n = 1 %>
-      <% @achevements.each do |achevement| %>
-      <div class="achevement"><%= "達成率（#{achevement.goal}）:○％" %></div>
-        <% if n == 1 %> 
-          <% @achevement1 = achevement %>
-        <% elsif n == 2 %>
-          <% @achevement2 = achevement %>
+      <div class="acheve-title">
+      目標達成率
+      </div>
+      <%= link_to "<削除>", "/users/#{current_user.id}/achevements/1", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <div class="achevement">
+        <% if @achevement1.present? %>
+        <%= "目標１：達成率（#{@achevement1.goal}）：○％" %>
         <% else %>
-          <% @achevement3 = achevement %>
+        <%= "目標１：登録されていません" %>
         <% end %>
-      <% n += 1 %>
-      <% end %>
+      </div>
+      <div class="achevement">
+        <% if @achevement2.present? %>
+        <%= "目標２：達成率（）：○％" %>
+        <% else %>
+        <%= "目標２：登録されていません" %>
+        <% end %>
+      </div>
+      <div class="achevement">
+        <% if @achevement3.present? %>
+        <%= "目標３：達成率（）：○％" %>
+        <% else %>
+        <%= "目標３：登録されていません" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -30,16 +54,31 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
+        <% if @achevement1.present? %>
         <div class="may-map-title"><h1><%= @achevement1.goal %></h1></div>
         <%= image_tag @achevement1.image, class:"my-map" %>
+        <% else %>
+        <div class="may-map-title"><h1>目標１：登録がありません</h1></div>
+          <%= image_tag "my-map1-ex.png", class:"my-map" %>
+        <% end %>
       </div>
       <div class="carousel-item">
+        <% if @achevement2.present? %>
         <div class="may-map-title"><h1><%= @achevement2.goal %></h1></div>
           <%= image_tag @achevement2.image, class:"my-map" %>
+        <% else %>
+        <div class="may-map-title"><h1>目標２：登録がありません</h1></div>
+          <%= image_tag "my-map2-ex.png", class:"my-map" %>
+        <% end %>
       </div>
-            <div class="carousel-item">
+      <div class="carousel-item">
+        <% if @achevement3.present? %>
         <div class="may-map-title"><h1><%= @achevement3.goal %></h1></div>
           <%= image_tag @achevement3.image, class:"my-map" %>
+        <% else %>
+        <div class="may-map-title"><h1>目標３：登録がありません</h1></div>
+          <%= image_tag "my-map3-ex.png", class:"my-map" %>
+        <% end %>
       </div>
     </div>
     <div class="map-btn"> 

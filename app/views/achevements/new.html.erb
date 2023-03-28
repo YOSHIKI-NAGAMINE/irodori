@@ -1,5 +1,14 @@
 <div class='chat-room-form'>
   <h1>目標の追加</h1>
+  <% if @achevement.errors.any? %>
+  <div class = "alert">
+    <ul>
+      <% @achevement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   <%= form_with url: "/users/#{current_user.id}/achevements", model: @achevement, local: true do |f| %>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>

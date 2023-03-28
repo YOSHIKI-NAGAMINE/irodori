@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 2023_03_27_121147) do
   create_table "achevements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "goal_number"
     t.string "goal"
+    t.integer "fraction_top"
+    t.integer "fraction_bottom"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
