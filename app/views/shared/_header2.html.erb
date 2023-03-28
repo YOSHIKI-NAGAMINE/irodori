@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <div class="title">
-      <h1 class="title-text"><a href="/">IRODORI.</a></h1>
+      <div class ="header-user-name"><%= "#{current_user.nickname}'s" %></div><h1 class="title-text"><a href="/">IRODORI.</a></h1>
     </div>
     <div>
       <%= link_to "しおり作成", new_siori_path, class: "glowflash" %>

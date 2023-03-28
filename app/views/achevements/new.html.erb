@@ -9,6 +9,7 @@
     </ul>
   </div>
   <% end %>
+  <% if @achevements.length < 4 %>
   <%= form_with url: "/users/#{current_user.id}/achevements", model: @achevement, local: true do |f| %>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
@@ -20,14 +21,6 @@
     </div>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
-        <%= f.label :goal_number, :目標の番号, class: 'chat-room-form__label'%>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <%= f.text_field :goal_number, class: 'chat__room_name chat-room-form__input', placeholder: '目標の番号を選んでください'%>
-      </div>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
         <%= f.label :goal, :目標にする地域, class: 'chat-room-form__label'%>
       </div>
       <div class='chat-room-form__field--right'>
@@ -35,9 +28,31 @@
       </div>
     </div>
     <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :fraction_bottom, :行きたい場所の数は？, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :fraction_bottom, class: 'chat__room_name chat-room-form__input', placeholder: '目標にした地域の中で行ってみたい場所の数を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :fraction_top, :既に行った場所の数は？, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :fraction_top, class: 'chat__room_name chat-room-form__input', placeholder: '目標にした地域の中で既に行った場所の数を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
       <div class='chat-room-form__field--right'>
         <%= f.submit class: 'chat-room-form__action-btn'%>
       </div>
     </div>
+  <% end %>
+  <% else %>
+  <div class="achevement-over">
+    <div>作成できる目標は３つまでです。目標を編集するか削除してください。<div>
+  <%= link_to "＜マイページへ＞", "/users/#{current_user.id}" %>
+  </div>
   <% end %>
 </div>

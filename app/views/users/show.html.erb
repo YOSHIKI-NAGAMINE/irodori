@@ -5,8 +5,10 @@
     <% @achevement1 = achevement %>
   <% elsif n == 2 %>
     <% @achevement2 = achevement %>
-  <% else %>
+  <% elsif n == 3 %>
     <% @achevement3 = achevement %>
+  <% else %>
+    <% @achevement4 = achevement %>
   <% end %>
 <% n += 1 %>
 <% end %>
@@ -20,28 +22,27 @@
   <% end %>
     <div class="achievements">
       <div class="acheve-title">
-      目標達成率
+      目標達成率<%= link_to("<目標を追加する>", "/users/#{current_user.id}/achevements/new", {class: "add-schedule"}) %>
       </div>
-      <%= link_to "<削除>", "/users/#{current_user.id}/achevements/1", method: :delete, data: { confirm: '本当に削除しますか？' } %>
       <div class="achevement">
         <% if @achevement1.present? %>
-        <%= "目標１：達成率（#{@achevement1.goal}）：○％" %>
-        <% else %>
-        <%= "目標１：登録されていません" %>
+        <%= "目標１：達成率（#{@achevement1.goal}）：#{sprintf( "%.1f", @achevement1.fraction_top/@achevement1.fraction_bottom.to_f*100 )}％" %>
+        <%= link_to("<編集>", "/users/#{current_user.id}/achevements/#{@achevement1.id}/edit", {class: "schedule-edit"}) %>
+        <%= link_to "<削除>", "/users/#{current_user.id}/achevements/#{@achevement1.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
         <% end %>
       </div>
       <div class="achevement">
         <% if @achevement2.present? %>
-        <%= "目標２：達成率（）：○％" %>
-        <% else %>
-        <%= "目標２：登録されていません" %>
+        <%= "目標２：達成率（#{@achevement2.goal}）：#{sprintf( "%.1f", @achevement2.fraction_top/@achevement2.fraction_bottom.to_f*100 )}％" %>
+                <%= link_to("<編集>", "/users/#{current_user.id}/achevements/#{@achevement2.id}/edit", {class: "schedule-edit"}) %>
+        <%= link_to "<削除>", "/users/#{current_user.id}/achevements/#{@achevement2.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
         <% end %>
       </div>
       <div class="achevement">
         <% if @achevement3.present? %>
-        <%= "目標３：達成率（）：○％" %>
-        <% else %>
-        <%= "目標３：登録されていません" %>
+        <%= "目標３：達成率（#{@achevement3.goal}）：#{sprintf( "%.1f", @achevement3.fraction_top/@achevement3.fraction_bottom.to_f*100 )}％" %>
+                <%= link_to("<編集>", "/users/#{current_user.id}/achevements/#{@achevement3.id}/edit", {class: "schedule-edit"}) %>
+        <%= link_to "<削除>", "/users/#{current_user.id}/achevements/#{@achevement3.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
         <% end %>
       </div>
     </div>
