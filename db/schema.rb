@@ -13,11 +13,12 @@
 ActiveRecord::Schema.define(version: 2023_03_27_121147) do
 
   create_table "achevements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "goal1"
-    t.string "gpal2"
-    t.string "goal3"
+    t.integer "goal_number"
+    t.string "goal"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_achevements_on_user_id"
   end
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 2023_03_27_121147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "achevements", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "albums", "schedules"
   add_foreign_key "albums", "sioris"
