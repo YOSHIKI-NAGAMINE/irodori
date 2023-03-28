@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :siori_users
   has_many :sioris, through: :siori_users
   has_many :messages
+  has_many :achevements
 end

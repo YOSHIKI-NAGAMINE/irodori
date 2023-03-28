@@ -1,13 +1,50 @@
+<% @achvement = 0 %>
+<% n = 1 %>
+<% @achevements.each do |achevement| %>
+  <% if n == 1 %> 
+    <% @achevement1 = achevement %>
+  <% elsif n == 2 %>
+    <% @achevement2 = achevement %>
+  <% elsif n == 3 %>
+    <% @achevement3 = achevement %>
+  <% else %>
+    <% @achevement4 = achevement %>
+  <% end %>
+<% n += 1 %>
+<% end %>
+
 <%= render "shared/header2" %>
 <main>
   <div class="nav"></div>
   <div class="profeel">
+  <%= link_to "/users/#{current_user.id}/achevements/new" do %>
     <div class="icon"><%= image_tag "icon.png", class:"icon-img" %></div>
+  <% end %>
     <div class="achievements">
-      <div class="acheve-title">目標達成率</div>
-      <div class="achevement">達成率（世界）:○％</div>
-      <div class="achevement">達成率（日本）:○％</div>
-      <div class="achevement">達成率（ヨーロッパ）:○％</div>
+      <div class="acheve-title">
+      目標達成率<%= link_to("<目標を追加する>", "/users/#{current_user.id}/achevements/new", {class: "add-schedule"}) %>
+      </div>
+      <div class="achevement">
+        <% if @achevement1.present? %>
+        <%= "目標１：達成率（#{@achevement1.goal}）：#{sprintf( "%.1f", @achevement1.fraction_top/@achevement1.fraction_bottom.to_f*100 )}％" %>
+        <%= link_to("<編集>", "/users/#{current_user.id}/achevements/#{@achevement1.id}/edit", {class: "schedule-edit"}) %>
+        <%= link_to "<削除>", "/users/#{current_user.id}/achevements/#{@achevement1.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
+      </div>
+      <div class="achevement">
+        <% if @achevement2.present? %>
+        <%= "目標２：達成率（#{@achevement2.goal}）：#{sprintf( "%.1f", @achevement2.fraction_top/@achevement2.fraction_bottom.to_f*100 )}％" %>
+                <%= link_to("<編集>", "/users/#{current_user.id}/achevements/#{@achevement2.id}/edit", {class: "schedule-edit"}) %>
+        <%= link_to "<削除>", "/users/#{current_user.id}/achevements/#{@achevement2.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
+      </div>
+      <div class="achevement">
+        <% if @achevement3.present? %>
+        <%= "目標３：達成率（#{@achevement3.goal}）：#{sprintf( "%.1f", @achevement3.fraction_top/@achevement3.fraction_bottom.to_f*100 )}％" %>
+                <%= link_to("<編集>", "/users/#{current_user.id}/achevements/#{@achevement3.id}/edit", {class: "schedule-edit"}) %>
+        <%= link_to "<削除>", "/users/#{current_user.id}/achevements/#{@achevement3.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -18,16 +55,31 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="may-map-title"><h1>World</h1></div>
-        <%= image_tag "my-map1.png", class:"my-map" %>
+        <% if @achevement1.present? %>
+        <div class="may-map-title"><h1><%= @achevement1.goal %></h1></div>
+        <%= image_tag @achevement1.image, class:"my-map" %>
+        <% else %>
+        <div class="may-map-title"><h1>目標１：登録がありません</h1></div>
+          <%= image_tag "my-map1-ex.png", class:"my-map" %>
+        <% end %>
       </div>
       <div class="carousel-item">
-        <div class="may-map-title"><h1>Japan</h1></div>
-        <%= image_tag "my-map2.png", class:"my-map" %>
+        <% if @achevement2.present? %>
+        <div class="may-map-title"><h1><%= @achevement2.goal %></h1></div>
+          <%= image_tag @achevement2.image, class:"my-map" %>
+        <% else %>
+        <div class="may-map-title"><h1>目標２：登録がありません</h1></div>
+          <%= image_tag "my-map2-ex.png", class:"my-map" %>
+        <% end %>
       </div>
       <div class="carousel-item">
-      <div class="may-map-title"><h1>Europe</h1></div>
-        <%= image_tag "my-map3.png", class:"my-map" %>
+        <% if @achevement3.present? %>
+        <div class="may-map-title"><h1><%= @achevement3.goal %></h1></div>
+          <%= image_tag @achevement3.image, class:"my-map" %>
+        <% else %>
+        <div class="may-map-title"><h1>目標３：登録がありません</h1></div>
+          <%= image_tag "my-map3-ex.png", class:"my-map" %>
+        <% end %>
       </div>
     </div>
     <div class="map-btn"> 

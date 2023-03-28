@@ -1,0 +1,42 @@
+<div class='chat-room-form'>
+  <h1>目標の追加</h1>
+  <%= form_with url: "/users/#{current_user.id}/achevements/#{@achevement.id}", model: @achevement, local: true do |f| %>
+        <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :image, :地図の画像, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :goal, :目標にする地域, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :goal, class: 'chat__room_name chat-room-form__input', placeholder: '目標にする地域名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :fraction_bottom, :行きたい場所の数は？, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :fraction_bottom, class: 'chat__room_name chat-room-form__input', placeholder: '目標にした地域の中で行ってみたい場所の数を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :fraction_top, :既に行った場所の数は？, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :fraction_top, class: 'chat__room_name chat-room-form__input', placeholder: '目標にした地域の中で既に行った場所の数を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>
