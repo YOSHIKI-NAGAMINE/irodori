@@ -7,8 +7,18 @@
   <% end %>
     <div class="achievements">
       <div class="acheve-title">目標達成率</div>
+      <% @achvement = 0 %>
+      <% n = 1 %>
       <% @achevements.each do |achevement| %>
       <div class="achevement"><%= "達成率（#{achevement.goal}）:○％" %></div>
+        <% if n == 1 %> 
+          <% @achevement1 = achevement %>
+        <% elsif n == 2 %>
+          <% @achevement2 = achevement %>
+        <% else %>
+          <% @achevement3 = achevement %>
+        <% end %>
+      <% n += 1 %>
       <% end %>
     </div>
   </div>
@@ -20,16 +30,16 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="may-map-title"><h1>World</h1></div>
-        <%= image_tag "my-map1.png", class:"my-map" %>
+        <div class="may-map-title"><h1><%= @achevement1.goal %></h1></div>
+        <%= image_tag @achevement1.image, class:"my-map" %>
       </div>
       <div class="carousel-item">
-        <div class="may-map-title"><h1>Japan</h1></div>
-        <%= image_tag "my-map2.png", class:"my-map" %>
+        <div class="may-map-title"><h1><%= @achevement2.goal %></h1></div>
+          <%= image_tag @achevement2.image, class:"my-map" %>
       </div>
-      <div class="carousel-item">
-      <div class="may-map-title"><h1>Europe</h1></div>
-        <%= image_tag "my-map3.png", class:"my-map" %>
+            <div class="carousel-item">
+        <div class="may-map-title"><h1><%= @achevement3.goal %></h1></div>
+          <%= image_tag @achevement3.image, class:"my-map" %>
       </div>
     </div>
     <div class="map-btn"> 
