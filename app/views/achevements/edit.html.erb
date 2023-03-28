@@ -1,0 +1,34 @@
+<div class='chat-room-form'>
+  <h1>目標の追加</h1>
+  <%= form_with url: "/users/#{current_user.id}/achevements/#{@achevement.id}", model: @achevement, local: true do |f| %>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :image, :地図の画像, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :goal_number, :目標の番号, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :goal_number, class: 'chat__room_name chat-room-form__input', placeholder: '目標の番号を選んでください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :goal, :目標にする地域, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :goal, class: 'chat__room_name chat-room-form__input', placeholder: '目標にする地域名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>

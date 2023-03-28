@@ -2,7 +2,9 @@
 <main>
   <div class="nav"></div>
   <div class="profeel">
+  <%= link_to "/users/#{current_user.id}/achevements/1/edit" do %>
     <div class="icon"><%= image_tag "icon.png", class:"icon-img" %></div>
+  <% end %>
     <div class="achievements">
       <div class="acheve-title">目標達成率</div>
       <% @achevements.each do |achevement| %>
