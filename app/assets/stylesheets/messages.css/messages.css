@@ -56,15 +56,16 @@
   position: fixed;
   right: 0;
 }
+
 .chat-header {
-  height: 80px;
+  height: 70px;
   padding: 0 10px;
 }
 
 .header-title{
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .header-button{  
@@ -80,13 +81,13 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 80px - 70px);
-  padding: 46px 40px 0;
+  height: calc(100vh - 100px - 80px - 70px);
+  padding: 10px;
   overflow: scroll;
 }
 
 .message {
-  margin: 10px 0 0 0;
+  margin: 5px 0 0 0;
 }
 
 .upper-message{
@@ -102,6 +103,18 @@
   color: #999;
   font-size: 12px;
   padding-left: 10px;
+  margin-top: 10px;
+}
+
+.user-message-user {
+  color: #434a54;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.user-message-date {
+  color: #999;
+  font-size: 12px;
 }
 
 .lower-message {
@@ -109,9 +122,13 @@
 }
 
 .message-content {
-  color: #434a54;
+  color: black;
   font-size: 14px;
-  margin-bottom: 40px;
+}
+
+.user-message-content {
+  color: black;
+  font-size: 14px;
 }
 
 
@@ -282,3 +299,54 @@ ul album-content{
 .body{
 
 }
+
+
+
+.balloon2 {
+  position: relative;
+  background-color: #8BFF4D;
+  margin-top: 20px;
+  padding: 2px 10px;
+  color: #333;
+  border-radius: 10px;
+
+  }
+  
+
+  
+  .balloon2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: 40px;
+  top: -15px;
+  border-bottom: 16px solid #8BFF4D;
+  border-right: -20px solid transparent;
+  border-left: 20px solid transparent;
+  }
+
+
+  .balloon {
+    position: relative;
+    background-color: #999999;
+    margin-top: 20px;
+    padding: 2px 10px;
+    color: black;
+    border-radius: 10px;
+    }
+    
+    
+    .balloon::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 5px;
+    top: -15px;
+    border-bottom: 16px solid #999999;
+    border-right: 20px solid transparent;
+    border-left: 0px solid transparent;
+    }
