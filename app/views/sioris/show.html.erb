@@ -17,7 +17,7 @@
         <div>
           <%= link_to image_tag("icon_album.png"), "#" %>
           <%= link_to("<編集>", "/sioris/#{@siori.id}/edit", {class: "schedule-edit"}) %>
-          <%# <%= link_to "<削除>", "/sioris/#{@siori.id}/schedules/#{schedule.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %> %>
+          <%= link_to "<削除>", "/sioris/#{@siori.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
         </div>
       </div>
     </div>

@@ -31,6 +31,12 @@ class SiorisController < ApplicationController
     redirect_to action: :show
   end
 
+  def destroy
+    siori = Siori.find(params[:id])
+    siori.destroy
+    redirect_to "/users/#{current_user.id}"
+  end
+
 
   private
   def siori_params
