@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :achevements, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :sioris, only: [:index, :new, :create, :show] do
+  resources :sioris, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :messages, only: [:create]
     resources :schedules, only: [:new, :create, :destroy, :edit, :update] do
       resources :albums, only: [:new, :create, :index, :destroy, :edit, :update]

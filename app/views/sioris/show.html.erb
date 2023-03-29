@@ -6,12 +6,19 @@
       <div class="siori-title" >
         <%= @siori.title %>
       </div>
-      <div>
-        <%= "期間：#{@siori.start_day}〜【#{@siori.day}日間】" %>
-        参加者：
-        <% @users.each do |user| %>
-        <%= "#{user.nickname}/" %>
-        <% end %>
+      <div class="siori-info">
+        <div>
+          <%= "期間：#{@siori.start_day}〜【#{@siori.day}日間】" %>
+          参加者：
+          <% @users.each do |user| %>
+          <%= "#{user.nickname}/" %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to image_tag("icon_album.png"), "#" %>
+          <%= link_to("<編集>", "/sioris/#{@siori.id}/edit", {class: "schedule-edit"}) %>
+          <%= link_to "<削除>", "/sioris/#{@siori.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        </div>
       </div>
     </div>
 

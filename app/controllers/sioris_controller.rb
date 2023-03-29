@@ -21,6 +21,22 @@ class SiorisController < ApplicationController
     @users = User.find(@siori.user_ids)
   end
 
+  def edit
+    @siori = Siori.find(params[:id])
+  end
+
+  def update
+    siori = Siori.find(params[:id])
+    siori.update(siori_params)
+    redirect_to action: :show
+  end
+
+  def destroy
+    siori = Siori.find(params[:id])
+    siori.destroy
+    redirect_to "/users/#{current_user.id}"
+  end
+
 
   private
   def siori_params
