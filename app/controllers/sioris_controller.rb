@@ -21,6 +21,16 @@ class SiorisController < ApplicationController
     @users = User.find(@siori.user_ids)
   end
 
+  def edit
+    @siori = Siori.find(params[:id])
+  end
+
+  def update
+    siori = Siori.find(params[:id])
+    siori.update(siori_params)
+    redirect_to action: :show
+  end
+
 
   private
   def siori_params

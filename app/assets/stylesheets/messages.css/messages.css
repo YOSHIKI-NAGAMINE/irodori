@@ -200,10 +200,6 @@
 
 }
 
-.col{
-
-}
-
 .schedule-img{
   width: 30%;
 }
@@ -233,6 +229,11 @@
 .siori-title{
   font-size: 80px;
   text-align: center;
+}
+
+.siori-info{
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-schedule{
