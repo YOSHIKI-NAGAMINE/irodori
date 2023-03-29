@@ -3,7 +3,7 @@
   <div class="side-bar">
 
     <div class="side-bar-header">
-      <div class="siori-title">
+      <div class="siori-title" >
         <%= @siori.title %>
       </div>
       <div>
@@ -27,31 +27,38 @@
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
-             <div class="schedule-bar">
+            <details>
+            <summary>
+            <div class="schedule-bar">
               <div class="schedule-time">
-                <%= "#{schedule.time}" %>
+              <%= "#{schedule.time}" %>
               </div>
+              <h3 class="mb-0"><%= "#{schedule.title}" %></h3>
               <div>
                 <%= link_to image_tag("icon_album.png"), "/sioris/#{@siori.id}/schedules/#{schedule.id}/albums" %>
                 <%= link_to("<編集>", "/sioris/#{@siori.id}/schedules/#{schedule.id}/edit", {class: "schedule-edit"}) %>
                 <%= link_to "<削除>", "/sioris/#{@siori.id}/schedules/#{schedule.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
               </div>
             </div>
+            <div class="schedule-places">
+              <%= "場所：#{schedule.place}" %>
+              <%= "＜#{schedule.map_link}＞" %>
+            </div>
+            </summary>
+            <div class="lower-schedule">
+              <div class="col-auto d-none d-lg-block">
+                <div class="schedule-img">
+                  <%= image_tag schedule.image, size: '150x150'%>
+                </div>
+              </div>
 
-            <div class="col-auto d-none d-lg-block">
-              <div class="schedule-img">
-                <%= image_tag schedule.image, size: '150x150'%>
+              <div class="col p-4 d-flex flex-column position-static"> 
+                <div class="schedule-memo">
+                  <%= "#{schedule.memo}" %>
+                </div>
               </div>
             </div>
-
-            <div class="col p-4 d-flex flex-column position-static">
-              
-              <h3 class="mb-0"><%= "#{schedule.title}" %></h3>
-              <div class="mb-1 text-muted"><%= "場所：#{schedule.place}" %><%= "＜#{schedule.map_link}＞" %></div>
-              <div class="schedule-memo">
-                <%= "#{schedule.memo}" %>
-              </div>
-            </div>
+            </details>
 
             
 

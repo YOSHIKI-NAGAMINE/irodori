@@ -1,6 +1,8 @@
 .wrapper {
   display: flex;
+  background: url(background-photo.jpg) center center / cover no-repeat fixed;
 }
+
 .side-bar {
   background-color: #FFFFFF;
   width: calc(100vw - 300px);
@@ -194,7 +196,7 @@
 }
 
 .row{
-  width: 800px;
+  width: 180%;
 
 }
 
@@ -226,7 +228,6 @@
 .schedule-day{
   font-size: 40px;
 }
-
 
 
 .siori-title{
@@ -268,6 +269,35 @@
   text-align: right;
   display: flex;
   justify-content: space-between;
+}
+
+.schedule-time{
+  text-align: start;
+}
+
+.schedule-places{
+  color: #999999;
+}
+
+.lower-schedule{
+  display: flex;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  line-height: 50%;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
 }
 
 .schedule-time{
