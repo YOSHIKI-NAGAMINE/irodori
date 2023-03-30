@@ -15,7 +15,7 @@
           <% end %>
         </div>
         <div>
-          <%= link_to image_tag("icon_album.png"), "#" %>
+          <%= link_to image_tag("icon_album.png"), "/sioris/#{@siori.id}/schedules/0/albums" %>
           <%= link_to("<編集>", "/sioris/#{@siori.id}/edit", {class: "schedule-edit"}) %>
           <%= link_to "<削除>", "/sioris/#{@siori.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %>
         </div>
@@ -61,7 +61,7 @@
 
               <div class="col p-4 d-flex flex-column position-static"> 
                 <div class="schedule-memo">
-                  <%= "#{schedule.memo}" %>
+                  <%= simple_format(schedule.memo) %>
                 </div>
               </div>
             </div>

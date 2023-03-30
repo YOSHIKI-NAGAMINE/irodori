@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
     @siori = params[:siori_id]
     @schedule = params[:schedule_id]
     @photos = Album.where(schedule_id: @schedule)
+    @siori_photos = Album.where(siori_id: @siori)
   end
 
   def new
