@@ -17,8 +17,8 @@
     <% end %>
   <% elsif @siori_photos.present? && @schedule == "0" %>
     <% @siori_photos.each do |photo| %>
-       <div class ="album-schedule-title"><%= "#{photo.schedule.title}" %></div>
-       <div class="album-content">
+      <div class="album-content">
+        <div class ="album-schedule-title"><%= "#{photo.schedule.title}" %></div>
         <div><%= image_tag photo.image, class: "item-img" %></div>
         <div class="album-item-comment"><%= simple_format(photo.comment) %></div>
         <div><%= link_to("<編集する>", "/sioris/#{@siori}/schedules/#{photo.schedule_id}/albums/#{photo.id}/edit", {class: "schedule-edit"}) %><%= link_to "<削除する>", "/sioris/#{@siori}/schedules/#{@schedule}/albums/#{photo.id}", method: :delete, data: { confirm: '本当に削除しますか？' } %></div>

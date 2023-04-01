@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.album-contents{
+  display: flex;
+}
+
+.album-content{
+  margin: 10px;
+}
 
 .album-no-content{
   line-height: 100px;

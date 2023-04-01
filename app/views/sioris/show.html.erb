@@ -48,8 +48,11 @@
               </div>
             </div>
             <div class="schedule-places">
-              <%= "場所：#{schedule.place}" %>
-              <%= "＜#{schedule.map_link}＞" %>
+              <% if schedule.map_link.present? %>
+              <%= link_to "場所：#{schedule.place}", schedule.map_link, target: :_blank, rel: "noopener noreferrer"%>
+              <% else %>
+              <div class="schedule-place"><%= "場所：#{schedule.place}" %></div>
+              <% end %>
             </div>
             </summary>
             <div class="lower-schedule">
